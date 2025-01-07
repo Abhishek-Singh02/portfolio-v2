@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-size: 16px;
+  @apply w-screen bg-white text-black dark:bg-black bg-contain dark:text-neutral-100;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
