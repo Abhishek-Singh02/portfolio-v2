@@ -1,4 +1,36 @@
+import {
+  AboutType,
+  BlogType,
+  ExperienceType,
+  IntroType,
+  loadQuery,
+  ProjectType,
+  ResumeType,
+  SocialMediaType,
+} from "@/sanity";
+import { SOCIAL_MEDIA_QUERY } from "@/sanity/queries/social-media.query";
 import type { MetaFunction } from "@remix-run/node";
+import {
+  ABOUT_QUERY,
+  BLOG_QUERY,
+  EXPERIENCE_QUERY,
+  INTRO_QUERY,
+  PROJECT_QUERY,
+  RESUME_QUERY,
+} from "../sanity/queries";
+import { useLoaderData } from "@remix-run/react";
+import {
+  IntroSection,
+  AboutSection,
+  ExperienceSection,
+  SectionNavbar,
+  SocialMediaLinks,
+  CursorTracker,
+  ClientOnly,
+  ProjectSection,
+  BlogsSection,
+  Footer,
+} from "@/components";
 
 export const meta: MetaFunction = () => {
   return [
@@ -7,35 +39,56 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const loader = async () => {
+  const [intro, about, socialMedias, experiences, projects, resume, blogs] =
+    (await Promise.all(
+      [
+        INTRO_QUERY,
+        ABOUT_QUERY,
+        SOCIAL_MEDIA_QUERY,
+        EXPERIENCE_QUERY,
+        PROJECT_QUERY,
+        RESUME_QUERY,
+        BLOG_QUERY,
+      ].map((query) => loadQuery(query).then(({ data }) => data))
+    )) as [
+      IntroType,
+      AboutType,
+      SocialMediaType[],
+      ExperienceType[],
+      ProjectType[],
+      ResumeType,
+      BlogType[]
+    ];
+  return { intro, about, socialMedias, experiences, projects, resume, blogs };
+};
+
 export default function Index() {
+  const { intro, resume, socialMedias, about, experiences, projects, blogs } =
+    useLoaderData<ReturnType<typeof loader>>();
   return (
-    <div className="prose prose-blue prose-lg mx-auto px-8 py-24">
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div className="relative">
+      <CursorTracker />
+      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
+        <div className="lg:flex lg:justify-between lg:gap-4">
+          <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
+            <div>
+              <IntroSection intro={intro} />
+              <ClientOnly fallback={null}>
+                <SectionNavbar />
+              </ClientOnly>
+            </div>
+            <SocialMediaLinks socialMedias={socialMedias} />
+          </header>
+          <main id="content" className="pt-24 lg:w-[52%] lg:py-24">
+            <AboutSection about={about} />
+            <ExperienceSection experiences={experiences} resume={resume} />
+            <ProjectSection projects={projects} />
+            <BlogsSection blogs={blogs} />
+            <Footer />
+          </main>
+        </div>
+      </div>
     </div>
   );
 }
