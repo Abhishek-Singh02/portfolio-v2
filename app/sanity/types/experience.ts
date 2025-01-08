@@ -9,4 +9,5 @@ export type ExperienceType = {
     end?: string;
   };
   description: string;
+  tags:string[]
 };
