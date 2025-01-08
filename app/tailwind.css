@@ -12,7 +12,7 @@
 
 body {
     font-size: 16px;
-  @apply bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900;
+  @apply bg-slate-900 leading-relaxed text-slate-400 bg-grid-white/[0.025] antialiased selection:bg-teal-300 selection:text-teal-900;
 }
 html {
     @apply scroll-smooth;
