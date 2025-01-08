@@ -5,5 +5,6 @@ export type ProjectType = {
   madeAt?: string;
   thumbnail: string;
   url: string;
+  showOnHome?:boolean
   tags: string[];
 };
