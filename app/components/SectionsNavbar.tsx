@@ -1,11 +1,12 @@
-import { Link, useLocation } from "@remix-run/react";
+import { useSectionStore } from "@/store";
+import { Link } from "@remix-run/react";
 import clsx from "clsx";
 import { FC } from "react";
 
 export type SectionNavbarProps = {};
 
 export const SectionNavbar: FC<SectionNavbarProps> = () => {
-  const { hash } = useLocation();
+  const hash = useSectionStore(({ active }) => active);
   return (
     <nav className="flex flex-col gap-4 mt-16 hidden lg:block">
       <NavLink to="#about" label="About" active={hash === "#about" || !hash} />
@@ -15,7 +16,6 @@ export const SectionNavbar: FC<SectionNavbarProps> = () => {
         active={hash === "#experience"}
       />
       <NavLink to="#projects" label="Projects" active={hash === "#projects"} />
-      <NavLink to="#blogs" label="Blogs" active={hash === "#blogs"} />
     </nav>
   );
 };
