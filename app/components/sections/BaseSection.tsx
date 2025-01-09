@@ -18,6 +18,7 @@ export const BaseSection: FC<BaseSectionProps> = ({
   ...props
 }) => {
   const ref = useRef<HTMLElement>(null!);
+  const titleRef = useRef<HTMLDivElement>(null!);
   const setActive = useSectionStore(({ setActive }) => setActive);
   const debounced = useDebouncedCallback((sec: string) => {
     setActive(sec);
@@ -31,6 +32,20 @@ export const BaseSection: FC<BaseSectionProps> = ({
       }
     },
   });
+
+  useIntersectionObserver(titleRef, {
+    threshold: 1,
+    onIntersect(entry) {
+      titleRef.current.classList.toggle(
+        "backdrop-blur",
+        entry.intersectionRatio < 1
+      );
+      titleRef.current.classList.toggle(
+        "bg-slate-900/75",
+        entry.intersectionRatio < 1
+      );
+    },
+  });
   return (
     <section
       id={id}
@@ -41,7 +56,10 @@ export const BaseSection: FC<BaseSectionProps> = ({
       ])}
       ref={ref}
     >
-      <div className="sticky top-0 z-[100] -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+      <div
+        ref={titleRef}
+        className="sticky top-[-1px] z-[100] -mx-6 mb-4 w-screen px-6 py-5  md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+      >
         <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
           {title}
         </h2>
