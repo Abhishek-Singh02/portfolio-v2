@@ -20,6 +20,7 @@ export const ProjectSection: FC<ProjectSectionProps> = ({ projects }) => {
                 <SectionCard
                   key={index}
                   url={url}
+                  className="lg:!gap-4"
                   leftSlot={
                     <img
                       loading="lazy"

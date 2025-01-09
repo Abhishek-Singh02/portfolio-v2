@@ -21,7 +21,7 @@ export const BlogsSection: FC<BlogsSectionProps> = ({ blogs }) => {
               const { name, url, thumbnail, year } = blog;
               return (
                 <SectionCard
-                  className="!flex-row lg:!items-center"
+                  className="!flex-row lg:!items-center lg:!gap-4"
                   key={index}
                   url={url}
                   topSlot={
