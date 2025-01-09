@@ -43,8 +43,12 @@ export const SectionCard: FC<SectionCardProps> = ({
       <div className="flex flex-col gap-3 z-50">
         {topSlot}
         <div className="flex gap-1 items-baseline lg:items-end font-medium leading-tight text-slate-200 group-hover/card:text-teal-300 card-focus-visible:text-teal-300 text-base">
-          <h2>{title}</h2>
-          <ArrowIcon />
+          <span>
+            {title}
+            <span className="inline-block">
+              <ArrowIcon />
+            </span>
+          </span>
         </div>
         <p className="text-sm leading-normal">{description}</p>
         {!!tags?.length && (
