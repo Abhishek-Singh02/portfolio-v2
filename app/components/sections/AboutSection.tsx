@@ -23,7 +23,7 @@ export const AboutSection: FC<AboutSectionProps> = ({ about }) => {
                     target="_blank"
                     referrerPolicy="no-referrer"
                     {...props}
-                    className="text-teal-400"
+                    className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
                   >
                     {domToReact(ele.children, options)}
                   </a>
