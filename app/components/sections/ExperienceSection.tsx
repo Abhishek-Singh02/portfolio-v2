@@ -20,6 +20,7 @@ export const ExperienceSection: FC<ExperienceSectionProps> = ({
             const { company, position, timeline, description, tags } = exp;
             return (
               <SectionCard
+                className="max-lg:!gap-0"
                 key={index}
                 url={company.url}
                 leftSlot={

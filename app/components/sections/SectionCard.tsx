@@ -25,7 +25,7 @@ export const SectionCard: FC<SectionCardProps> = ({
   return (
     <a
       className={clsx([
-        "group/card w-full flex gap-8 group-hover/list:opacity-50 hover:!opacity-100 relative max-lg:flex-col",
+        "group/card w-full flex gap-4 lg:gap-8 group-hover/list:opacity-50 hover:!opacity-100 relative max-lg:flex-col",
         className,
       ])}
       href={url}
