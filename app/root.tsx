@@ -1,4 +1,5 @@
 import {
+  isRouteErrorResponse,
   json,
   Links,
   Meta,
@@ -6,6 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
+  useRouteError,
 } from "@remix-run/react";
 
 import stylesheet from "@/tailwind.css?url";
@@ -53,6 +55,35 @@ export default function App() {
         ) : null}
         <Scripts />
         <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+  return (
+    <html>
+      <head>
+        <title>Oops!</title>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <div className="relative">
+          <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
+            <div className="h-screen w-full flex items-center justify-center">
+              <h1 className="text-3xl">
+                {isRouteErrorResponse(error)
+                  ? `${error.status} ${error.statusText}`
+                  : error instanceof Error
+                  ? error.message
+                  : "Unknown Error"}
+              </h1>
+            </div>
+          </div>
+        </div>
         <Scripts />
       </body>
     </html>

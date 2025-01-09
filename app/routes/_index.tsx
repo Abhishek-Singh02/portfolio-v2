@@ -1,4 +1,16 @@
 import {
+  AboutSection,
+  BlogsSection,
+  ClientOnly,
+  CursorTracker,
+  ExperienceSection,
+  Footer,
+  IntroSection,
+  ProjectSection,
+  SectionNavbar,
+  SocialMediaLinks,
+} from "@/components";
+import {
   AboutType,
   BlogType,
   ExperienceType,
@@ -11,6 +23,14 @@ import {
 import { SOCIAL_MEDIA_QUERY } from "@/sanity/queries/social-media.query";
 import type { MetaFunction } from "@remix-run/node";
 import {
+  useLoaderData,
+  isRouteErrorResponse,
+  Links,
+  Meta,
+  Scripts,
+  useRouteError,
+} from "@remix-run/react";
+import {
   ABOUT_QUERY,
   BLOG_QUERY,
   EXPERIENCE_QUERY,
@@ -18,19 +38,6 @@ import {
   PROJECT_QUERY,
   RESUME_QUERY,
 } from "../sanity/queries";
-import { useLoaderData } from "@remix-run/react";
-import {
-  IntroSection,
-  AboutSection,
-  ExperienceSection,
-  SectionNavbar,
-  SocialMediaLinks,
-  CursorTracker,
-  ClientOnly,
-  ProjectSection,
-  BlogsSection,
-  Footer,
-} from "@/components";
 
 export const meta: MetaFunction = () => {
   return [
