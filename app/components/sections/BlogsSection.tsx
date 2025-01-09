@@ -37,7 +37,7 @@ export const BlogsSection: FC<BlogsSectionProps> = ({ blogs }) => {
                       width="200"
                       height="48"
                       data-nimg="1"
-                      className="!aspect-video max-md:w-48 max-sm:w-24 mb-2 lg:w-36 lg:h-20 object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
+                      className="z-50 !aspect-video max-md:w-48 max-sm:w-24 mb-2 lg:w-36 lg:h-20 object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
                     />
                   }
                   title={name}

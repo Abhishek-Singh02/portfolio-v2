@@ -33,9 +33,14 @@ export const SectionCard: FC<SectionCardProps> = ({
       referrerPolicy="no-referrer"
       rel="noreferrer"
     >
-      <div className={clsx(["absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover/card:bg-slate-800/50 lg:group-hover/card:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover/card:drop-shadow-lg",shadowClassname])}></div>
+      <div
+        className={clsx([
+          "absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover/card:bg-slate-800/50 lg:group-hover/card:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover/card:drop-shadow-lg",
+          shadowClassname,
+        ])}
+      ></div>
       {leftSlot}
-      <div className="flex flex-col gap-3 z-10">
+      <div className="flex flex-col gap-3 z-50">
         {topSlot}
         <div className="flex gap-1 items-baseline lg:items-end font-medium leading-tight text-slate-200 group-hover/card:text-teal-300 card-focus-visible:text-teal-300 text-base">
           <h2>{title}</h2>

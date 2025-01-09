@@ -28,7 +28,7 @@ export const ProjectSection: FC<ProjectSectionProps> = ({ projects }) => {
                       width="200"
                       height="48"
                       data-nimg="1"
-                      className="aspect-video lg:h-20 object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
+                      className="z-50 aspect-video lg:h-20 object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
                     />
                   }
                   title={name}
