@@ -3,6 +3,7 @@ import {
   json,
   Links,
   Meta,
+  MetaFunction,
   Outlet,
   Scripts,
   ScrollRestoration,
@@ -19,6 +20,13 @@ const LiveVisualEditing = lazy(() => import("@/components/LiveVisualEditing"));
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ];
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Abhishek Singh" },
+    { name: "description", content: "personal portfolio" },
+  ];
+};
 
 export const loader = () => {
   return json({

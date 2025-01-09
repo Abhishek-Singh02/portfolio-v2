@@ -1,50 +1,35 @@
 import {
-  AboutSection,
-  BlogsSection,
-  ClientOnly,
-  CursorTracker,
-  ExperienceSection,
-  Footer,
-  IntroSection,
-  ProjectSection,
-  SectionNavbar,
-  SocialMediaLinks,
+    AboutSection,
+    BlogsSection,
+    ClientOnly,
+    CursorTracker,
+    ExperienceSection,
+    Footer,
+    IntroSection,
+    ProjectSection,
+    SectionNavbar,
+    SocialMediaLinks,
 } from "@/components";
 import {
-  AboutType,
-  BlogType,
-  ExperienceType,
-  IntroType,
-  loadQuery,
-  ProjectType,
-  ResumeType,
-  SocialMediaType,
+    AboutType,
+    BlogType,
+    ExperienceType,
+    IntroType,
+    loadQuery,
+    ProjectType,
+    ResumeType,
+    SocialMediaType,
 } from "@/sanity";
 import { SOCIAL_MEDIA_QUERY } from "@/sanity/queries/social-media.query";
-import type { MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import {
-  useLoaderData,
-  isRouteErrorResponse,
-  Links,
-  Meta,
-  Scripts,
-  useRouteError,
-} from "@remix-run/react";
-import {
-  ABOUT_QUERY,
-  BLOG_QUERY,
-  EXPERIENCE_QUERY,
-  INTRO_QUERY,
-  PROJECT_QUERY,
-  RESUME_QUERY,
+    ABOUT_QUERY,
+    BLOG_QUERY,
+    EXPERIENCE_QUERY,
+    INTRO_QUERY,
+    PROJECT_QUERY,
+    RESUME_QUERY,
 } from "../sanity/queries";
-
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Abhishek singh" },
-    { name: "description", content: "personal portfolio" },
-  ];
-};
 
 export const loader = async () => {
   const [intro, about, socialMedias, experiences, projects, resume, blogs] =
