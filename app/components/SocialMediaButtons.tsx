@@ -23,7 +23,7 @@ export type SocialMediaLinkProps = {
 };
 
 export const SocialMediaLink: FC<SocialMediaLinkProps> = ({ socialMedia }) => {
-  const { url, icon } = socialMedia;
+  const { url, icon,name } = socialMedia;
   const component: any = parse(icon, {
     replace(ele) {
       if (ele.type === "script") return <></>;
@@ -36,6 +36,7 @@ export const SocialMediaLink: FC<SocialMediaLinkProps> = ({ socialMedia }) => {
       target="_blank"
       rel="noreferrer"
       className="block hover:text-slate-200"
+      aria-label={`${name} (opens in new tab)`}
     >
       <span className="w-8 h-8">
         {cloneElement(component, {

@@ -24,6 +24,7 @@ export const ProjectSection: FC<ProjectSectionProps> = ({ projects }) => {
                   leftSlot={
                     <img
                       loading="lazy"
+                      alt={project.name}
                       src={thumbnail}
                       decoding="sync"
                       width="200"

@@ -33,6 +33,7 @@ export const BlogsSection: FC<BlogsSectionProps> = ({ blogs }) => {
                     <img
                       loading="lazy"
                       src={thumbnail}
+                      alt={blog.name}
                       decoding="sync"
                       width="200"
                       height="48"
