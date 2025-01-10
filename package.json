@@ -19,6 +19,7 @@
     "@sanity/image-url": "^1.1.0",
     "@sanity/overlays": "^2.3.59",
     "@sanity/react-loader": "^1.10.32",
+    "@vercel/analytics": "^1.4.1",
     "clsx": "^2.1.1",
     "groq": "^3.68.3",
     "html-react-parser": "^5.2.2",

@@ -10,10 +10,10 @@ import {
   useLoaderData,
   useRouteError,
 } from "@remix-run/react";
-
 import stylesheet from "@/tailwind.css?url";
 import type { LinksFunction } from "@remix-run/node";
 import { lazy, Suspense } from "react";
+import {Analytics} from '@vercel/analytics/remix'
 
 const LiveVisualEditing = lazy(() => import("@/components/LiveVisualEditing"));
 
@@ -51,6 +51,7 @@ export default function App() {
       </head>
       <body>
         <Outlet />
+        <Analytics />
         <script
           dangerouslySetInnerHTML={{
             __html: `window.ENV = ${JSON.stringify(ENV)}`,
