@@ -24,7 +24,7 @@ export const ExperienceSection: FC<ExperienceSectionProps> = ({
                 key={index}
                 url={company.url}
                 leftSlot={
-                  <span className="z-50 mb-2 mt-1 min-w-32 text-[13px] font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2 whitespace-nowrap z-10">
+                  <span className="z-50 align-end mb-2 mt-1 min-w-32 text-[13px] font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2 whitespace-nowrap z-10">
                     {timeline.start} - {timeline.end || "Present"}
                   </span>
                 }
