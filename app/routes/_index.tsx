@@ -1,34 +1,33 @@
 import {
-    AboutSection,
-    BlogsSection,
-    ClientOnly,
-    CursorTracker,
-    ExperienceSection,
-    Footer,
-    IntroSection,
-    ProjectSection,
-    SectionNavbar,
-    SocialMediaLinks,
+  AboutSection,
+  BlogsSection,
+  CursorTracker,
+  ExperienceSection,
+  Footer,
+  IntroSection,
+  ProjectSection,
+  SectionNavbar,
+  SocialMediaLinks,
 } from "@/components";
 import {
-    AboutType,
-    BlogType,
-    ExperienceType,
-    IntroType,
-    loadQuery,
-    ProjectType,
-    ResumeType,
-    SocialMediaType,
+  AboutType,
+  BlogType,
+  ExperienceType,
+  IntroType,
+  loadQuery,
+  ProjectType,
+  ResumeType,
+  SocialMediaType,
 } from "@/sanity";
 import { SOCIAL_MEDIA_QUERY } from "@/sanity/queries/social-media.query";
 import { useLoaderData } from "@remix-run/react";
 import {
-    ABOUT_QUERY,
-    BLOG_QUERY,
-    EXPERIENCE_QUERY,
-    INTRO_QUERY,
-    PROJECT_QUERY,
-    RESUME_QUERY,
+  ABOUT_QUERY,
+  BLOG_QUERY,
+  EXPERIENCE_QUERY,
+  INTRO_QUERY,
+  PROJECT_QUERY,
+  RESUME_QUERY,
 } from "../sanity/queries";
 
 export const loader = async () => {
@@ -66,9 +65,7 @@ export default function Index() {
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
             <div>
               <IntroSection intro={intro} />
-              <ClientOnly fallback={null}>
-                <SectionNavbar />
-              </ClientOnly>
+              <SectionNavbar />
             </div>
             <SocialMediaLinks socialMedias={socialMedias} />
           </header>
