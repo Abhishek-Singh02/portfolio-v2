@@ -1,3 +1,5 @@
+import stylesheet from "@/tailwind.css?url";
+import type { LinksFunction } from "@remix-run/node";
 import {
   isRouteErrorResponse,
   json,
@@ -10,15 +12,23 @@ import {
   useLoaderData,
   useRouteError,
 } from "@remix-run/react";
-import stylesheet from "@/tailwind.css?url";
-import type { LinksFunction } from "@remix-run/node";
+import { Analytics } from "@vercel/analytics/remix";
 import { lazy, Suspense } from "react";
-import {Analytics} from '@vercel/analytics/remix'
 
 const LiveVisualEditing = lazy(() => import("@/components/LiveVisualEditing"));
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
+  { rel: "preconnect", href: "https://fonts.gstatic.com" },
+  {
+    rel: "preload",
+    as: "style",
+    href: "https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap",
+  },
 ];
 
 export const meta: MetaFunction = () => {
