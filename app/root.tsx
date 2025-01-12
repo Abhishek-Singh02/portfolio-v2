@@ -1,21 +1,18 @@
 import stylesheet from "@/tailwind.css?url";
 import type { LinksFunction } from "@remix-run/node";
 import {
-  isRouteErrorResponse,
-  json,
-  Links,
-  Meta,
-  MetaFunction,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useLoaderData,
-  useRouteError,
+    isRouteErrorResponse,
+    json,
+    Links,
+    Meta,
+    MetaFunction,
+    Outlet,
+    Scripts,
+    ScrollRestoration,
+    useLoaderData,
+    useRouteError,
 } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/remix";
-import { lazy, Suspense } from "react";
-
-const LiveVisualEditing = lazy(() => import("@/components/LiveVisualEditing"));
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -67,11 +64,6 @@ export default function App() {
             __html: `window.ENV = ${JSON.stringify(ENV)}`,
           }}
         />
-        {ENV.SANITY_STUDIO_STEGA_ENABLED ? (
-          <Suspense>
-            <LiveVisualEditing />
-          </Suspense>
-        ) : null}
         <Scripts />
         <ScrollRestoration />
         <Scripts />
