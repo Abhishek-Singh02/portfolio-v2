@@ -24,7 +24,7 @@ export const BaseSection: FC<BaseSectionProps> = ({
         setActive(sec);
     }, 100);
     useIntersectionObserver(ref, {
-        threshold: 0.75,
+        threshold: 0.25,
         rootMargin: "0px 50%",
         onIntersect(entry) {
             if (entry.isIntersecting) {
@@ -38,11 +38,11 @@ export const BaseSection: FC<BaseSectionProps> = ({
         onIntersect(entry) {
             titleRef.current.classList.toggle(
                 "backdrop-blur",
-                entry.intersectionRatio < 1,
+                entry.intersectionRatio < 1
             );
             titleRef.current.classList.toggle(
                 "bg-slate-900/75",
-                entry.intersectionRatio < 1,
+                entry.intersectionRatio < 1
             );
         },
     });
