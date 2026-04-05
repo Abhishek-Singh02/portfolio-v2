@@ -1,3 +1,4 @@
+import { parseHtml } from "@/utils/parseHtml";
 import clsx from "clsx";
 import { FC, ReactNode } from "react";
 
@@ -50,7 +51,9 @@ export const SectionCard: FC<SectionCardProps> = ({
                         </span>
                     </span>
                 </div>
-                <p className="text-sm leading-normal">{description}</p>
+                <p className="text-sm leading-normal">
+                    {parseHtml(description)}
+                </p>
                 {!!tags?.length && (
                     <div className="flex gap-2 flex-wrap w-full">
                         {tags.map((tag) => (
