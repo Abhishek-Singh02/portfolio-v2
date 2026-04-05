@@ -24,6 +24,7 @@ export const SectionNavbar: FC<SectionNavbarProps> = () => {
                 label="Projects"
                 active={hash === "#projects"}
             />
+            <NavLink to="#blogs" label="Blogs" active={hash === "#blogs"} />
         </nav>
     );
 };
